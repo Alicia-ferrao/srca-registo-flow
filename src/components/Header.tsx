@@ -1,18 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { UserCircle, Moon, Sun } from "lucide-react";
-import { useState, useEffect } from "react";
+import { UserCircle } from "lucide-react";
 
 const Header = () => {
-  const [isDark, setIsDark] = useState(true);
-
-  useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [isDark]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/50">
@@ -49,18 +39,6 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center space-x-3">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setIsDark(!isDark)}
-            className="rounded-full"
-          >
-            {isDark ? (
-              <Sun className="h-5 w-5" />
-            ) : (
-              <Moon className="h-5 w-5" />
-            )}
-          </Button>
           <Button variant="ghost" size="icon" className="rounded-full">
             <UserCircle className="h-5 w-5" />
           </Button>
